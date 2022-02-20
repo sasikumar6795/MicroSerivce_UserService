@@ -1,5 +1,6 @@
 package com.sasi.userservice.controller;
 
+import com.sasi.userservice.VO.ResponseTemplateVO;
 import com.sasi.userservice.entity.User;
 import com.sasi.userservice.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +20,12 @@ public class UserController {
     {
         log.info("inside userController method");
         return userService.saveUser(user);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseTemplateVO getUserWithDepartment(@PathVariable ("id") Long id)
+    {
+        return userService.getUserWithDepartment(id);
     }
 
 
